@@ -3,6 +3,7 @@ package com.jt.springcloud.controller;
 import java.net.URL;
 import java.util.List;
 
+import com.jt.springcloud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,16 +15,19 @@ import com.jt.springcloud.pojo.User;
 
 @RestController
 public class UserController {
-	
-	private static final String provider_url = "http://localhost:8000";
+	@Autowired
+	private UserService userService;
+//	private static final String provider_url = "http://localhost:8000";
+	private static final String provider_url = "http://PROVIDER-USER";
 	@Autowired
 	private RestTemplate restTemplate;
 	
 	@SuppressWarnings("unchecked")	//压制警告
 	@RequestMapping("/consumer/findAll")
 	public List<User> findAll(){
-		
-		return restTemplate.getForObject(provider_url+"/findAll", List.class);
+		System.out.println("使用feign进行请求");
+//		return restTemplate.getForObject(provider_url+"/findAll", List.class);
+		return userService.findAll();
 	}
 
 	/**

@@ -11,6 +11,8 @@
         <module>springcloud-1-interface</module>
         <module>springcloud-1-provider</module>
         <module>springcloud-1-consumer</module>
+        <module>springcloud-eureka</module>
+        <module>springcloud-2-provider</module>
     </modules>
     <packaging>pom</packaging>
     <!--导入springBoot依赖包 -->
@@ -30,6 +32,7 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>Finchley.SR2</version>
+<!--                <version>Hoxton.SR9</version>-->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
