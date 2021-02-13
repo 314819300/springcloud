@@ -21,13 +21,13 @@ public class UserController {
 	@HystrixCommand(fallbackMethod="hystrix_findAll")
 	public List<User> findAll(){
 		System.out.println("我是第一个服务");
-		int a = 1/0;
+//		int a = 1/0;
 		return userService.findAll();
 	}
 
 	public List<User> hystrix_findAll(){
 		List<User> userList =
-				new ArrayList<User>();
+				new ArrayList<>();
 		User user = new User();
 		user.setId(0).setName("服务器异常").setAge(0)
 				.setSex("");

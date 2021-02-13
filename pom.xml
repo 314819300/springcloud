@@ -13,6 +13,7 @@
         <module>springcloud-1-consumer</module>
         <module>springcloud-eureka</module>
         <module>springcloud-2-provider</module>
+        <module>springcloud-dashboard</module>
     </modules>
     <packaging>pom</packaging>
     <!--导入springBoot依赖包 -->
