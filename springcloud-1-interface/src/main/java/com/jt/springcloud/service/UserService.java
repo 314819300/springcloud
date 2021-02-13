@@ -1,21 +1,21 @@
 package com.jt.springcloud.service;
 
-import com.jt.springcloud.pojo.User;
+import java.util.List;
+
+import com.jt.springcloud.factory.UserFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
+import com.jt.springcloud.pojo.User;
 
-/**
- * @author wangning
- * @create 2021-02-11 10:36
- */
-@FeignClient(value="provider-user")
+@FeignClient(value="provider-user", fallbackFactory= UserFallbackFactory.class)	//写入微服务名称
+//@FeignClient(value="provider-user")
 public interface UserService {
-	@RequestMapping("/findAll") //提供者路径
+	
+	@RequestMapping(value="/findAll")
 	List<User> findAll();
-
+	
 	@RequestMapping("/saveUser")
 	String saveUser(@RequestBody User user);
 }

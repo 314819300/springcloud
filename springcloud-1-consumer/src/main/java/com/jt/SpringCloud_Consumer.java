@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication(exclude=DataSourceAutoConfiguration.class)
 @EnableEurekaClient
-@EnableFeignClients        //添加feign的支持
+@EnableFeignClients		//添加feign的支持
 public class SpringCloud_Consumer {
 	
 	public static void main(String[] args) {

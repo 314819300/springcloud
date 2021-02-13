@@ -3,19 +3,19 @@ package com.jt.springcloud.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jt.springcloud.service.UserService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.jt.springcloud.pojo.User;
-import com.jt.springcloud.service.UserService;
+
 
 @RestController
 public class UserController {
 	
 	@Autowired
 	public UserService userService;
-	
 	
 	@RequestMapping("/findAll")
 	@HystrixCommand(fallbackMethod="hystrix_findAll")
