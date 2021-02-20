@@ -20,18 +20,18 @@
 #-----------------------------------------------------------
 #eureka集群的搭建
 server:
-  port: 7000                      #定义注册中心端口
+  port: 7001                      #定义注册中心端口
 eureka:
   server:
     enable-self-preservation: true  #设定自我保护模式 默认值为true 不建议关闭
   instance:
-    hostname: eureka7000.com        #eureka服务的实例名称
+    hostname: eureka7001.com        #eureka服务的实例名称
   client:
     register-with-eureka: false   #表示注册中心 不会注册自己本身
     fetch-registry: false         #表示自己就是注册中心,不需要检索服务
     service-url:
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+      defaultZone: http://localhost:7000/eureka,http://localhost:7002/eureka
 
 
 
