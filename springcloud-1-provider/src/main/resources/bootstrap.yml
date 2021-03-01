@@ -1,0 +1,8 @@
+#bootstrap.yml优先级高于application.yml
+spring:
+  cloud:
+    config:
+      name: application   #加载远程配置中心文件名称
+      profile: prod             #动态加载开发环境配置文件
+      label:  master             #获取master默认分支
+      uri: http://localhost:9080/ #连接配置中心服务端的地址
